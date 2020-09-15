@@ -11,7 +11,6 @@
 // 2: 可变借用不能有别名(Alias)
 // 3: 不可变借用不能再次出借为可变借用
 // *: 对移动语义类型解引用会转移所有权
-
 fn compute(input: &u32, output: &mut u32) {
     if *input > 10 {
         *output = 1;
