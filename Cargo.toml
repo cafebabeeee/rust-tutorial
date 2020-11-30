@@ -1,5 +1,5 @@
 [package]
-name = "lifetime"
+name = "rustlearning"
 version = "0.1.0"
 authors = ["CAFEBABE <neuropathycc@gmail.com>"]
 edition = "2018"
