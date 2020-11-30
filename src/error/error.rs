@@ -2,7 +2,7 @@ use std::fs::File;
 use std::io::ErrorKind;
 use std::io::Read;
 
-fn main() {
+fn error() {
     let f = File :: open("file.txt");
 
     let mut f = match f {

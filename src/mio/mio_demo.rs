@@ -5,7 +5,7 @@ use std::env;
 
 const SERVER:Token = Token(0);
 const CLIENT:Token = Token(1);
-fn main() -> ioResult<()>{
+pub fn demo() -> ioResult<()>{
     let net_interface = env::args().nth(0);
     //assert_eq!(net_interface, None);
     println!("os net interface  {:?}", net_interface.unwrap());
@@ -34,7 +34,7 @@ fn main() -> ioResult<()>{
                         println!("CLIENT read Event");
                     }
                     if e.is_writable() {
-                        println!("CLIENT write Event");     
+                        println!("CLIENT write Event");
                     }
                     return  Ok(())
                 }

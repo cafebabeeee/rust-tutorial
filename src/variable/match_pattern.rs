@@ -1,5 +1,5 @@
 
-fn main() {
+pub fn match_result() {
     let coin: Coin = Coin :: Cc;
 
     let result: u8 = value_in_cents(coin);
