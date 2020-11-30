@@ -1,7 +1,5 @@
 **/.vscode
-
 **/target
-
 **/tests
 target
 .idea
