@@ -1,1 +1,8 @@
-/target
+**/.vscode
+
+**/target
+
+**/tests
+target
+.idea
+.vscode

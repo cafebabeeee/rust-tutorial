@@ -1,6 +1,6 @@
 //高阶函数是指以函数作为参数或者返回值的函数，函数是一等公民
-type math_op = fn(i32, i32)  -> i32;
-fn math(op: math_op, a: i32, b: i32) -> i32 {
+type Math_Op = fn(i32, i32)  -> i32;
+fn math(op: Math_Op, a: i32, b: i32) -> i32 {
     op(a, b)
 }
 
