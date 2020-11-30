@@ -19,3 +19,43 @@ pub fn compute(input: &u32, output: &mut u32) {
         *output *= 2;
     }
 }
+pub fn calculate_length(s: &String) -> usize { // s is a reference to a String
+    s.len()
+} // Here, s goes out of scope. But because it does not have ownership of what
+// it refers to, nothing happens.
+
+pub fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+
+pub fn error_mut_refs() {
+    let mut s = String::from("hello");
+
+    let r1 = &mut s;
+    let r2 = &mut s;
+    // cannot borrow `s` as mutable more than once at a time
+    println!("{}, {}", r1, r2);
+}
+
+pub fn problem_mut_refs() {
+    let mut s = String::from("hello");
+
+    let r1 = &s; // no problem
+    let r2 = &s; // no problem
+    let r3 = &mut s; // BIG PROBLEM
+
+    println!("{}, {}, and {}", r1, r2, r3);
+}
+
+pub fn without_problem_mut_refs() {
+    let mut s = String::from("hello");
+
+    let r1 = &s; // no problem
+    let r2 = &s; // no problem
+
+    println!("{}, {}", r1, r2);
+
+    let r3 = &mut s; // no PROBLEM
+
+    println!("{}", r3);
+}

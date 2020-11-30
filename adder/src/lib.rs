@@ -3,17 +3,6 @@ mod tests {
     use crate::*;
 
     #[test]
-    fn it_works() {
-        println!("{}", "CAFEBABE");
-        assert_eq!(2 + 2, 4);
-    }
-
-    #[test]
-    fn other() {
-        panic!("Make this test fail");
-    }
-
-    #[test]
     fn add_two_test() {
         let result = add_two(5);
         println!("{}", result);

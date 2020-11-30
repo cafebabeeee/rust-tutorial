@@ -1,4 +1,4 @@
-fn main() {
+pub fn scala_type() {
     let mut x = 5;
     println!("The number is {}", x);
     x = 7;

@@ -1,7 +1,7 @@
 // 
- fn main() {
+ fn flow() {
 
-    if_condition()；
+    if_condition();
     loop_demo();
     range_with_rev();
  }

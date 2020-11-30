@@ -1,7 +1,8 @@
 
 // Compound types can group multiple values into one type.
 // Rust has two primitive compound types: tuples and arrays
-fn main() {
+#[allow(unused_variables)]
+fn compound_type() {
 
     // Tuples
     // tuples hax fixed length,cannot grow or shrink in size.
