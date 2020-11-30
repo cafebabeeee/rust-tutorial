@@ -1,1 +1,1 @@
-# rust_study
+# DAILY RUST STUDY
