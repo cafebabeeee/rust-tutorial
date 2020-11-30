@@ -5,30 +5,33 @@ fn eg_1() {
     let x = Box::new("hello");
     let y = x;
     // println!("{}", x); error x move to y
+    println!("{}", y);
 }
 // 智能指针解引用：
+#[allow(unused_variables)]
 fn eg_2() {
     let a = Box::new("hello");
     let b = Box::new("Rust".to_string());
     let c = *a;
-    let d= *b;
+    let d = *b;
     println!("a= {:?}", a);
     // println!("b= {:?}", b); // borrow of movef value 'b'
 }
 
 // 共享所有权Rc<T>和Weak<T>
 // Rc<T>可以共享所有权给多个变量，共享一个所有权时，计数+1，计数为0，即所有共享变量
-    //都离开作用域时，该值才会被析构，Rc<T>属于单线程计数指针，非线程安全。不允许传递共享给别的线程
+//都离开作用域时，该值才会被析构，Rc<T>属于单线程计数指针，非线程安全。不允许传递共享给别的线程
 use std::rc::Rc;
-fn eg_rc(){
-   let x = Rc::new(45u32);
-   let y1 = x.clone();
-	let y2 = x.clone();
-	println!("{:?}", Rc::strong_count(&x));
-	let w = Rc::downgrade(&x);
-	println!("{:?}", Rc::weak_count(&x));
-	let y3 = &*x;
-	println!("{}", 100 - *x);
+#[allow(unused_variables)]
+fn eg_rc() {
+    let x = Rc::new(45u32);
+    let y1 = x.clone();
+    let y2 = x.clone();
+    println!("{:?}", Rc::strong_count(&x));
+    let w = Rc::downgrade(&x);
+    println!("{:?}", Rc::weak_count(&x));
+    let y3 = &*x;
+    println!("{}", 100 - *x);
 }
 
 // 内部可变性 Cell<T> 和 RefCell<T>:
@@ -37,17 +40,20 @@ fn eg_rc(){
 // 内部可变性容器是对 Struct 的封装
 use std::cell::Cell;
 use std::cell::RefCell;
-struct Foo{
+struct Foo {
     x: u32,
-    y: Cell<u32>
+    y: Cell<u32>,
 }
-fn main (){
-    let foo = Foo{x: 1, y: Cell::new(3)};
+fn main() {
+    let foo = Foo {
+        x: 1,
+        y: Cell::new(3),
+    };
     assert_eq!(1, foo.x);
     assert_eq!(3, foo.y.get());
     foo.y.set(5);
 
-    let x = RefCell::new(vec![1,2,3,4,5]);
+    let x = RefCell::new(vec![1, 2, 3, 4, 5]);
     println!("{:?}", x.borrow());
     let mut mut_v = x.borrow_mut();
     mut_v.push(5);

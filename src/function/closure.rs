@@ -36,7 +36,8 @@ fn counter(x: i32) -> impl Fn(i32) -> i32 {
 
 // #![feature(fn_traits, unboxed_closures)]
 // 显式指定闭包类型
-fn main () {
+#[allow(unused_variables)]
+fn main() {
     let env_var = 1;
-    let c : Box< Fn() -> i32 >= Box::new( | | env_var + 2 );
+    let c: Box<dyn Fn() -> i32> = Box::new(|| env_var + 2);
 }

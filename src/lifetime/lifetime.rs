@@ -15,7 +15,7 @@
 // 禁止在无参函数方法中返回引用，从函数返回一个引用，其生命周期参数比如与输入参数生命周期参数匹配
 fn eg_2<'a>(a: &'a str, b: &'a str) -> &'a str {
     let result = String::from("hello, lifetime");
-
+    result.as_str();
     // result.as_str() error
     a
 }
@@ -55,6 +55,6 @@ struct FooImpl<'a> {
 
 impl<'a> Foo<'a> for FooImpl<'a> {}
 
-fn fool<'a>(s: &'a str) -> Box<Foo<'a> + 'a> {
+fn fool<'a>(s: &'a str) -> Box<dyn Foo<'a> + 'a> {
     Box::new(FooImpl { name: s })
 }
