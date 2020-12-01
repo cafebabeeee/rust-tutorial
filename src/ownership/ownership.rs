@@ -99,11 +99,11 @@ fn calculate_length(s: String) -> (String, usize) {
     (s, length) // return two result
 }
 
-pub fn dangle() -> &String {
-    let s = String::from("hello");
-
-    &s // we return a reference to the String, s
-} // Here, s goes out of scope, and is dropped. Its memory goes away.
+// pub fn dangle() -> &String {
+//     let s = String::from("hello");
+//
+//     &s // we return a reference to the String, s
+// } // Here, s goes out of scope, and is dropped. Its memory goes away.
 // Danger!
 
 pub fn no_dangle() -> String {

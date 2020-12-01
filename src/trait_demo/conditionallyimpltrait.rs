@@ -8,7 +8,7 @@ struct Pair<T> {
     y: T,
 }
 
-impl <T> for Pair<T> {
+impl<T> Pair<T> {
     fn new(x: T, y: T) -> Self {
         Pair {
             x,

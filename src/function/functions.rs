@@ -1,4 +1,4 @@
-// functio definite
+// function definite
 // snake_case、Raw Identifier
 fn snake_case() {}
 fn r#fn() {}

@@ -15,7 +15,7 @@ fn largest<T: Copy + PartialOrd> (list: &[T]) -> T {
 
     let mut largest = list[0];
     
-    for &item in list.iter() {
+    for item in list.iter() {
         if item > largest {
             largest = item;
         }

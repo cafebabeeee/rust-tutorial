@@ -28,7 +28,7 @@ fn compound_type() {
 
     let months = ["January", "February", "March", "April", "May", "June",           "July", "August", "September", "October", "November", "December"];
 
-    let a: [i8;5] = [1, 2, 3, 4, 5]
+    let a: [i8;5] = [1, 2, 3, 4, 5];
 
     let a = [3; 5]; // [3, 3, 3, 3, 3]
 

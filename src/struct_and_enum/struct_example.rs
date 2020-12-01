@@ -18,6 +18,7 @@ impl Rectangle {
     }
 }
 
+#[allow(unused_variables)]
 fn main() {
 
     let rectangle:Rectangle = Rectangle { width: 30, height: 40 };

@@ -73,10 +73,10 @@ mod test{
 
     #[test]
     fn dangling() {
-        let reference_to_nothing = ownership::dangle();
+        //let reference_to_nothing = ownership::dangle();
         let reference_to_string = ownership::no_dangle();
 
-        println!("{}, {}.",reference_to_nothing, reference_to_string);
+        println!("{}", reference_to_string);
     }
 
     #[test]
