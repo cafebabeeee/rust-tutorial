@@ -58,3 +58,23 @@ impl<'a> Foo<'a> for FooImpl<'a> {}
 fn fool<'a>(s: &'a str) -> Box<dyn Foo<'a> + 'a> {
     Box::new(FooImpl { name: s })
 }
+
+///Base usage: 省略生命周期参数示例
+/// ```rust
+/// fn print(s: &str);                                           // 省略
+/// fn print<'a>(s: &'a str);                                   // 展开
+/// fn debug(lvl: uint, s: &str);                              // 省略
+/// fn debug<'a>(lvl: uint, s: &'a str);                      // 展开
+/// fn substr(s: &str, until: uint) -> &str;                 // 省略
+/// fn substr<'a>(s: &'a str, until: uint) -> &'a str;     // 展开
+/// fn get_str() -> &str;                                   // 非法
+/// fn frob(s: &str, t: &str) -> &str;                    // 非法
+/// fn get_mut(&mut self) -> &mut T;                           // 省略
+/// fn get_mut<'a>(&'a mut self) -> &'a mut T;              // 展开
+/// // 省略
+/// fn args<T:ToCStr>(&mut self, args: &[T]) -> &mut Command
+/// // 展开
+/// fn args<'a, 'b, T:ToCStr>(&'a mut self, args: &'b [T]) -> &'a mut Command
+/// fn new(buf: &mut [u8]) -> BufWriter;                      // 省略
+/// fn new<'a>(buf: &'a mut [u8]) -> BufWriter<'a>          // 展开
+/// ```

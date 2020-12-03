@@ -13,7 +13,7 @@ fn main () {
 
 fn largest<T: Copy + PartialOrd> (list: &[T]) -> T {
 
-    let mut largest = list[0];
+    let mut largest: T = list[0];
     
     for item in list.iter() {
         if item > largest {
