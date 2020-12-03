@@ -1,7 +1,7 @@
 pub trait Summary {
     // fn summarize(&self) -> String;
 
-    // default implemention
+    // default implementation
     fn summarize(&self) -> String {
         String::from("(Read more...)")
     }
@@ -57,8 +57,8 @@ fn main() {
 
 }
 
-// compiler fail,beacuse if and else have incompatible types
-fn returns_summarizable(switch: bool) -> impl Summary {
+// compiler fail,because if and else have incompatible types
+fn returns_summarized(switch: bool) -> impl Summary {
     if switch {
         NewsArticle {
             headline: String::from("Penguins win the Stanley Cup Championship!"),
