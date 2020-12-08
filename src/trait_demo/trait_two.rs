@@ -46,18 +46,14 @@ pub fn notify_actually<T: Summary>(item: T) {
     println!("Breaking news! {}", item.summarize());
 }
 
-///
+/// ...
 /// # pub fn notify(item: impl Summary + Display) { }
 /// # pub fn notify<T: Summary + Display>(item: T) { }
-/// `
-
+///
 // specifying Multiple Trait Bounds with the + Syntax
-
 // clearer Trait Bounds with where Clauses
 /// # fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32 { }
-
-
-
+/// ...
 fn some_function <T, U> (t: T, u: U) -> i32 where T: Display + Clone, U: Clone + Debug { }
 
 // returning Types that Implement Traits
