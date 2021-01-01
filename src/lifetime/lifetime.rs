@@ -68,7 +68,7 @@ fn fool<'a>(s: &'a str) -> Box<dyn Foo<'a> + 'a> {
 /// fn substr(s: &str, until: uint) -> &str;                 // 省略
 /// fn substr<'a>(s: &'a str, until: uint) -> &'a str;     // 展开
 /// fn get_str() -> &str;                                   // 非法
-/// fn frob(s: &str, t: &str) -> &str;                    // 非法
+/// fn foo(s: &str, t: &str) -> &str;                    // 非法
 /// fn get_mut(&mut self) -> &mut T;                           // 省略
 /// fn get_mut<'a>(&'a mut self) -> &'a mut T;              // 展开
 /// // 省略
@@ -78,3 +78,7 @@ fn fool<'a>(s: &'a str) -> Box<dyn Foo<'a> + 'a> {
 /// fn new(buf: &mut [u8]) -> BufWriter;                      // 省略
 /// fn new<'a>(buf: &'a mut [u8]) -> BufWriter<'a>          // 展开
 /// ```
+/// 
+pub fn empty() {
+
+}

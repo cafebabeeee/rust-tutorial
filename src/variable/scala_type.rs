@@ -17,6 +17,6 @@ pub fn scala_type() {
 
     // i8 can store numbers from -(2^7) to 2^7 - 1
     // u8 can store numbers from 0 to 2^8 - 1
-    let y: i8 = 150; // literal out of range for `i8`
-    println!("The number y is {}", y)
+    //let y: i8 = 150; // literal out of range for `i8`
+    //println!("The number y is {}", y)
 }

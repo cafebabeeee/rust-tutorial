@@ -46,9 +46,9 @@ fn ownership() {
 
     println!("result={}, length={}.", result, len);
 
-    s.push_str(", world!"); // push_str() appends a literal to a String
+    //result.push_str(", world!"); // push_str() appends a literal to a String
 
-    println!("{}", s); // This will print `hello, world!`
+    println!("{}", result); // This will print `hello, world!`
 
     string_copy();
 

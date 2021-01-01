@@ -54,7 +54,9 @@ pub fn notify_actually<T: Summary>(item: T) {
 // clearer Trait Bounds with where Clauses
 /// # fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32 { }
 /// ...
-fn some_function <T, U> (t: T, u: U) -> i32 where T: Display + Clone, U: Clone + Debug { }
+fn some_function <T, U> (t: T, u: U) -> i32 where T: Display + Clone, U: Clone + Debug { 
+    1
+}
 
 // returning Types that Implement Traits
 fn returns_summarized() -> impl Summary {
