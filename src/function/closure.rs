@@ -10,7 +10,7 @@ fn counter(x: i32) -> impl Fn(i32) -> i32 {
     Box::new(move |n: i32| n + x)
 }
 
-// 闭包特性：1: 延迟执行 1: 补货环境变量
+// 闭包特性：1: 延迟执行 2: buhuo环境变量
 // 基本语法：|a: i32, b: i32| -> i32 { a + b};
 // 闭包函数没有参数只有捕获的自由变量时，管道符里的参数也可以省略
 // let add = || a + b;
@@ -37,7 +37,12 @@ fn counter(x: i32) -> impl Fn(i32) -> i32 {
 // #![feature(fn_traits, unboxed_closures)]
 // 显式指定闭包类型
 #[allow(unused_variables)]
-fn main() {
+pub fn closure() {
     let env_var = 1;
     let c: Box<dyn Fn() -> i32> = Box::new(|| env_var + 2);
-}
+    fn add(a: i32, b: i32) -> i32 {
+        a + b
+    }
+
+    let add: Box<dyn Fn(i32, i32) -> i32> =Box::new(|a: i32, b: i32| -> i32 {a + b});
+}   

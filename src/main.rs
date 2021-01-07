@@ -43,33 +43,7 @@ fn internal_adder(a: i32, b: i32) -> i32 {
 #[cfg(test)]
 mod test{
     use crate::*;
-    use borrow::borrow;
-    use guess_number::guess;
     use ownership::ownership;
-
-    #[test]
-    fn guess() {
-        guess::guss();
-    }
-
-    #[test]
-    fn compute() {
-        let a = 15;
-        let mut b = 3;
-        borrow::compute(&a, &mut b);
-        println!(" b value is {}", b)
-    }
-
-    #[test]
-    fn borrow() {
-        let string = String::from("hello,rust");
-
-        let len = borrow::calculate_length(&string);
-
-        println!("The length is {}.", len);
-
-        //borrow::borrow::change(&mut string);
-    }
 
     #[test]
     fn dangling() {
