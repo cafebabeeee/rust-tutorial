@@ -14,6 +14,8 @@ fn one_arg(x: i32) {}
 fn main() {
     let fn_ptr1: fn(i32) = one_arg;
     let fn_ptr: fn() = hello;
+    let fn1 = hello; // isn't function ptr
+    fn1();
     //println!("{:p}", fn_ptr);
     let other_fn = fn_ptr;
 }

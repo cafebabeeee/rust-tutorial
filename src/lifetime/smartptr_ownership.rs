@@ -40,6 +40,7 @@ fn eg_rc() {
 // 内部可变性容器是对 Struct 的封装
 use std::cell::Cell;
 use std::cell::RefCell;
+use std::borrow::Cow;
 struct Foo {
     x: u32,
     y: Cell<u32>,
@@ -65,6 +66,35 @@ fn main() {
 // Cell<T>使用set、get直接操作包裹值；RefCell<T>使用borrow、borrow_mut返回Ref<T>、RefMut<T>来操作包裹的值
 // Cell<T> 无运行时开销，RefCell<T>执行运行时检查，可能会panic!
 
+fn refcell() {
+    let vec_ref = RefCell::new(vec![1, 2, 3]);
+    let mut ref1 = vec_ref.borrow_mut();
+    ref1.push(4);
+
+    // flow code will cause thread panic.
+    let mut ref2 = vec_ref.borrow_mut();
+}
+
 // Copy On Write Cow<T>:
 // Cow<T>是枚举体的智能指针，包含Borrowed、Owned表示所有权的借用和拥有
 // 以不可变的方式访问借用内容，以及再需要可变借用或所有权的时候克隆一份数据
+fn abs_all(v: &mut Cow<[i32]>) {
+    for i in 0..v.len() {
+        let n = v[i];
+        if n < 0 {
+            v.to_mut()[i] = -n;
+        }    
+    }
+}
+fn cowref() {
+    // 有可变需求 发生clone
+    // vec为不可变绑定，不会发生任何改变
+    let vec = vec![1, 2, 3, 4];
+    let mut v1 = Cow::from(&vec);
+    abs_all(&mut v1);
+    // 有可变需求 但数据本身拥有所有权所以不会发生clone
+    let mut v2 = Cow::from(vec![1, 2, 3, 4]);
+    abs_all(&mut v2);
+
+    println!("{:?}", v1);
+}
