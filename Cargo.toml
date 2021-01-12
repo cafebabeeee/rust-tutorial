@@ -9,5 +9,6 @@ edition = "2018"
 [dependencies]
 mio = {version = "0.7.6", features=["tcp", "os-poll"]}
 rand = "0.7"
+itertools = "0.10.0"
 [profile.release]
 panic = 'abort'

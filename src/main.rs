@@ -36,10 +36,6 @@ impl Guess {
     }
 }
 
-fn internal_adder(a: i32, b: i32) -> i32 {
-    a + b
-}
-
 #[cfg(test)]
 mod test{
     use crate::*;
@@ -56,7 +52,8 @@ mod test{
     #[test]
     #[should_panic(expected = "Guess value must be less than or equal to 100")]
     fn guess_new_test() {
-        Guess::new(200);
+        let guess = Guess::new(200);
+        println!("{}", guess.value);
     }
 
     #[test]

@@ -1,3 +1,3 @@
 mod hashmap;
-mod String;
+mod string;
 mod vector;

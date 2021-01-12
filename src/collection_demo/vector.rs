@@ -1,6 +1,6 @@
 
 fn main() {
-
+    let arr = [1, 2, 3];
     let mut vec: Vec<i32> = Vec :: new();
 
     {

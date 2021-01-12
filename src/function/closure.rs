@@ -1,4 +1,4 @@
-#![featrue(boxed, unboxed_closures, fn_traits)]
+// #![featrue(boxed, unboxed_closures, fn_traits)]
 // Closure通常指词法闭包，是一个持有外部环境的函数。外部环境指针闭包定义是所处词法作用域
 // 在函数式编程范式中称为自由变量，指并不是在闭包内定义的变量。将自由变量和自身绑定的函数就是闭包
 
