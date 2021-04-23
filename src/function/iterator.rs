@@ -99,7 +99,7 @@ pub struct Step<T> {
     skip: usize
 }
 impl<T> Iterator for Step<T> 
-where T:Iterator,
+    where T:Iterator,
 {
     type Item = T::Item;
 
@@ -114,7 +114,8 @@ where T:Iterator,
 
 pub trait ExtIteator: Iterator {
     fn step(self, n: usize) -> Step<Self>
-    where Self:Sized + Iterator,
+    where 
+        Self:Sized + Iterator,
     {
         Step {
             iter: self,

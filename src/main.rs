@@ -10,6 +10,7 @@ mod struct_and_enum;
 mod trait_demo;
 mod collection_demo;
 mod oop;
+mod concurrency;
 
 fn main() {
 
