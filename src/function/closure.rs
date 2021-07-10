@@ -116,7 +116,7 @@ pub fn closure() {
     let c: Box<dyn Fn() -> i32> = Box::new(|| env_var + 2);
     fn add(a: i32, b: i32) -> i32 {
         a + b
-    };
+    }
     let no_env = || println!("no modify env closuer");
     no_env();
     no_env();

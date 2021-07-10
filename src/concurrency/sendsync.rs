@@ -1,5 +1,5 @@
-use std::marker::Send;
-use std::marker::Sync;
+// use std::marker::Send;
+// use std::marker::Sync;
 
 // send: 可以在线程间安全的转移所有权
 // sync: 可以在线程间安全的传递不可变借用
