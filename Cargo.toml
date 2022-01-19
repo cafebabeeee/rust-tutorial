@@ -1,5 +1,5 @@
 [package]
-name = "rustlearning"
+name = "rust_tutorial"
 version = "0.1.0"
 authors = ["CAFEBABE <neuropathycc@gmail.com>"]
 edition = "2021"
@@ -7,7 +7,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-mio = {version = "0.8.0", features=["tcp", "os-poll"]}
+mio = {version = "0.8.0", features=["net","os-poll"]}
 rand = "0.8.4"
 itertools = "0.10.3"
 [profile.release]
