@@ -5,7 +5,7 @@ pub trait Summary {
     fn summarize(&self) -> String {
         String::from("(Read more...)")
     }
-} 
+}
 
 pub struct NewsArticle {
     pub headline: String,
@@ -21,7 +21,7 @@ pub struct Tweet {
     pub retweet: bool,
 }
 
-// an empty impl block 
+// an empty impl block
 impl Summary for NewsArticle {
     // fn summarize(&self) -> String {
     //     format!("{}, by {} ({})", self.headline, self.author, self.location)
@@ -41,20 +41,21 @@ fn main() {
         reply: false,
         retweet: false,
     };
-    
+
     println!("1 new tweet: {}", tweet.summarize());
 
-    // 
+    //
     let article = NewsArticle {
         headline: String::from("Penguins win the Stanley Cup Championship!"),
         location: String::from("Pittsburgh, PA, USA"),
         author: String::from("Iceburgh"),
-        content: String::from("The Pittsburgh Penguins once again are the best
-        hockey team in the NHL."),
+        content: String::from(
+            "The Pittsburgh Penguins once again are the best
+        hockey team in the NHL.",
+        ),
     };
-    
-    println!("New article available! {}", article.summarize());
 
+    println!("New article available! {}", article.summarize());
 }
 
 // compiler fail,because if and else have incompatible types

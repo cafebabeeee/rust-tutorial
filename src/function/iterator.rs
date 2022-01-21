@@ -1,13 +1,13 @@
-use std::{usize, vec};
 use std::iter::FromIterator;
+use std::{usize, vec};
 
 //  inner iterotor
 trait InIterator<T: Copy> {
-    fn each<F: Fn(T) -> T>(&mut self,f: F);
+    fn each<F: Fn(T) -> T>(&mut self, f: F);
 }
 
 impl<T: Copy> InIterator<T> for Vec<T> {
-    fn each<F: Fn(T) -> T>(&mut self,f: F) {
+    fn each<F: Fn(T) -> T>(&mut self, f: F) {
         let mut i = 0;
         while i < self.len() {
             self[i] = f(self[i]);
@@ -24,9 +24,9 @@ pub fn inner_iterator() {
 
 // outer iterator
 pub fn out_iterator() {
-    let vec: Vec<i32> = vec![1,2,3,4,5,];
-    // equals for loop  
-    let mut items= vec.iter();
+    let vec: Vec<i32> = vec![1, 2, 3, 4, 5];
+    // equals for loop
+    let mut items = vec.iter();
     loop {
         match items.next() {
             Some(i) => println!("{}", i),
@@ -34,7 +34,7 @@ pub fn out_iterator() {
         }
     }
 
-    let mut counter  = Counter{count: 0};
+    let mut counter = Counter { count: 0 };
     counter.next();
     println!("{}, {:?}", counter.count, counter.size_hint());
     counter.next();
@@ -68,14 +68,14 @@ impl Iterator for Counter {
 
 // impl FromIterator
 #[derive(Debug)]
-struct MyVec (Vec<i32>);
+struct MyVec(Vec<i32>);
 
 impl MyVec {
     fn new() -> MyVec {
         MyVec(Vec::new())
     }
 
-    fn add(&mut self, value:i32) {
+    fn add(&mut self, value: i32) {
         self.0.push(value);
     }
 }
@@ -96,10 +96,11 @@ impl FromIterator<i32> for MyVec {
 #[must_use = "reason"]
 pub struct Step<T> {
     iter: T,
-    skip: usize
+    skip: usize,
 }
-impl<T> Iterator for Step<T> 
-    where T:Iterator,
+impl<T> Iterator for Step<T>
+where
+    T: Iterator,
 {
     type Item = T::Item;
 
@@ -114,8 +115,8 @@ impl<T> Iterator for Step<T>
 
 pub trait ExtIteator: Iterator {
     fn step(self, n: usize) -> Step<Self>
-    where 
-        Self:Sized + Iterator,
+    where
+        Self: Sized + Iterator,
     {
         Step {
             iter: self,

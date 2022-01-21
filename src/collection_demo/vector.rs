@@ -1,7 +1,6 @@
-
 fn main() {
     let arr = [1, 2, 3];
-    let mut vec: Vec<i32> = Vec :: new();
+    let mut vec: Vec<i32> = Vec::new();
 
     {
         let mut vec = vec![1, 2, 3];
@@ -30,9 +29,10 @@ fn main() {
 
     // using enum to store mutiple Types
     let row = vec![
-    SpreadsheetCell::Int(3),
-    SpreadsheetCell::Text(String::from("blue")),
-    SpreadsheetCell::Float(10.12)];
+        SpreadsheetCell::Int(3),
+        SpreadsheetCell::Text(String::from("blue")),
+        SpreadsheetCell::Float(10.12),
+    ];
 
     println!("{:?}", row);
 }

@@ -3,13 +3,13 @@ use std::io::ErrorKind;
 use std::io::Read;
 
 fn error() {
-    let f = File :: open("file.txt");
+    let f = File::open("file.txt");
 
     let mut f = match f {
         Ok(file) => {
             println!("{}", "File is exist");
             file
-        },
+        }
         Err(error) => match error.kind() {
             ErrorKind::NotFound => match File::create("file.txt") {
                 Ok(fc) => fc,

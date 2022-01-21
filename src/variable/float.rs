@@ -1,6 +1,5 @@
 #[allow(unused_variables)]
 pub fn float() {
-
     // Rust’s floating-point types are f32 and f64
     let x = 2.0; // default typa is f64
     let _y: f32 = 3.2;
@@ -29,5 +28,4 @@ pub fn float() {
     let c = 'z';
     let z = 'ℤ';
     let heart_eyed_cat = '😻';
-
 }

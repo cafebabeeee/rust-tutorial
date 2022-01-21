@@ -78,7 +78,5 @@ fn fool<'a>(s: &'a str) -> Box<dyn Foo<'a> + 'a> {
 /// fn new(buf: &mut [u8]) -> BufWriter;                      // 省略
 /// fn new<'a>(buf: &'a mut [u8]) -> BufWriter<'a>          // 展开
 /// ```
-/// 
-pub fn empty() {
-
-}
+///
+pub fn empty() {}

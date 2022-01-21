@@ -12,7 +12,7 @@ pub fn move_str() {
     //         str.push('h');
     //     });
     // }
-    thread::spawn( move || {
-            str.push('h');
+    thread::spawn(move || {
+        str.push('h');
     });
 }

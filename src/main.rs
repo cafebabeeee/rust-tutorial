@@ -1,20 +1,18 @@
 mod borrow;
-mod function;
-mod lifetime;
-mod ownership;
-mod guess_number;
-mod variable;
+mod collection_demo;
+mod concurrency;
 mod error;
+mod function;
+mod guess_number;
+mod lifetime;
 mod mio;
+mod oop;
+mod ownership;
 mod struct_and_enum;
 mod trait_demo;
-mod collection_demo;
-mod oop;
-mod concurrency;
+mod variable;
 
-fn main() {
-
-}
+fn main() {}
 
 pub struct Guess {
     value: i32,
@@ -39,7 +37,7 @@ impl Guess {
 }
 
 #[cfg(test)]
-mod test{
+mod test {
     use crate::*;
     use ownership::ownership;
 
@@ -67,5 +65,4 @@ mod test{
             Err(String::from("two plus two does not equal four"))
         }
     }
-
 }

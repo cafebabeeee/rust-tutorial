@@ -103,13 +103,13 @@ fn counter(x: i32) -> impl Fn(i32) -> i32 {
 // 1 如果闭包没有捕获环境变量则自动实现Fn()
 // 2 如果捕获了Copy语义的环境变量
 //      1. 如果不需要修改环境变量，无论是否适用move都自动实现Fn()
-//      2. 如果需要修改环境变量，则自动实现FnMut() 
+//      2. 如果需要修改环境变量，则自动实现FnMut()
 // 3 如果捕获了Move语义的环境变量
 //      1. 如果不需要修改环境变量且没有使用move，则自动实现FnOne()
 //      2. 如果不需要修改环境变量且使用了move，则自动实现Fn()
 //      3. 如果需要修改环境变量则则自动实现FnMut()
 // 4 使用move，如果捕获的变量是Copy/Clone语义，则闭包会自动实现Copy/Clone，否则不会自动实现Copy/Clone
-// auto implememt Fn() for Copy 
+// auto implememt Fn() for Copy
 #[allow(unused_variables)]
 pub fn closure() {
     let env_var = 1;
@@ -123,16 +123,17 @@ pub fn closure() {
     println!("{}", c());
     c();
     println!("{}", c());
-    add(1, 4); 
+    add(1, 4);
     c();
     println!("{}", c());
-    let add: Box<dyn Fn(i32, i32) -> i32> =Box::new(|a: i32, b: i32| -> i32 {a + b});
+    let add: Box<dyn Fn(i32, i32) -> i32> = Box::new(|a: i32, b: i32| -> i32 { a + b });
 }
 
 // 闭包作为函数参数使用
 use std::ops::Fn;
 trait Any {
-    fn any<F>(&self, f: F) -> bool where 
+    fn any<F>(&self, f: F) -> bool
+    where
         F: Fn(u32) -> bool,
         Self: Sized;
 }
@@ -157,9 +158,11 @@ impl Any for Vec<u32> {
     /// }
     /// ```
     ///
-    fn any<F>(&self, f: F) -> bool where 
+    fn any<F>(&self, f: F) -> bool
+    where
         F: Fn(u32) -> bool,
-        Self: Sized {
+        Self: Sized,
+    {
         for &x in self {
             if f(x) {
                 return true;

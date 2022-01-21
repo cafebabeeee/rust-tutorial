@@ -1,14 +1,14 @@
-use std::io;
-use std::cmp::Ordering;
 use rand::Rng;
+use std::cmp::Ordering;
+use std::io;
 
 pub fn guss() {
     println!("Guess the number!");
 
     let secret_num = rand::thread_rng().gen_range(0..=101);
-    println!("The secret number is:  {}",secret_num);
+    println!("The secret number is:  {}", secret_num);
 
-    loop{
+    loop {
         println!("Please input your guess.");
         let mut guess = String::new();
 
@@ -31,6 +31,5 @@ pub fn guss() {
                 break;
             }
         }
-
-    };
+    }
 }

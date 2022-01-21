@@ -38,9 +38,9 @@ fn eg_rc() {
 // rust中可变不可变主要针对变量而言，对于结构体，可变不可变智能对其实例进行设置。无非分别制定单个成员是否可变
 // Cell<T> RefCell<T>提供内部可变性(Interior Mutability)的容器，而非是智能指针
 // 内部可变性容器是对 Struct 的封装
+use std::borrow::Cow;
 use std::cell::Cell;
 use std::cell::RefCell;
-use std::borrow::Cow;
 struct Foo {
     x: u32,
     y: Cell<u32>,
@@ -83,7 +83,7 @@ fn abs_all(v: &mut Cow<[i32]>) {
         let n = v[i];
         if n < 0 {
             v.to_mut()[i] = -n;
-        }    
+        }
     }
 }
 fn cowref() {

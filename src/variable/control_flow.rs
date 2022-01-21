@@ -1,31 +1,27 @@
-// 
- fn flow() {
-
+//
+fn flow() {
     if_condition();
     loop_demo();
     range_with_rev();
- }
+}
 
- fn range_with_rev() {
-
+fn range_with_rev() {
     for number in (1..4).rev() {
         println!("{}!", number);
     }
     println!("LIFTOFF!!!");
- }
+}
 
- fn if_condition() {
-
+fn if_condition() {
     let number = 100;
     if number >= 10 {
         println!("The number is more than 10!");
     } else {
         println!("The number is less than 10!");
     }
+}
 
- }
-
- fn condition() {
+fn condition() {
     let condition = true;
 
     let number = if condition {
@@ -36,11 +32,11 @@
     };
 
     println!("The value of number is: {}", number);
- }
+}
 
- // repeation with loop
+// repeation with loop
 fn loop_demo() {
-    loop{
+    loop {
         println!("Hello,Rust!");
         break;
     }
@@ -52,7 +48,7 @@ fn loop_with_result() {
     let result = loop {
         count += 1;
         if count == 10 {
-            break count * 2; // add the value after breank expression 
+            break count * 2; // add the value after breank expression
         }
     };
 
@@ -76,5 +72,5 @@ fn loop_with_for() {
 
     for element in array.iter() {
         println!("The value is {}", element);
-    } 
+    }
 }

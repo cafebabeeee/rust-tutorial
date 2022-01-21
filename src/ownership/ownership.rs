@@ -1,4 +1,4 @@
-// 值类型：Value 
+// 值类型：Value
 //      数据直接存储在栈中，作为右值(在值表达式中)执行赋值操作时，会自动复制一份值的新副本。
 // 引用类型：Reference
 //      数据存放在堆中，而栈上只保存指向堆中数据的地址
@@ -23,19 +23,19 @@
 // let: 绑定，并非传统意义的变量申明。而是一种绑定予以，赋予所有权。
 // 绑定具有时间属性(lifetime)、空间属性(scope)
 // {}、match、循环、if let、while let会创建词法作用域:
-    // let a = Some("hello".to_string());
-    // if let Some(s) = a { // a move to s
-    //     println!("{:?}", s);
-    // }
-    // // println!("{:?}", a); error
-    // println!("Hello, world!");
-    // 闭包会创建词法作用域: 闭包会捕获环境变量 1： 对于复制语义类型，以(&T)进行捕获 2：对于移动语义类型。以move进行捕获
-    // 3: 对可变绑定，如果闭包包含修改操作则以(&mut)进行捕获
-    // let x = "hello".to_string();
-    // let join = |i: &str| {x + i}; // 定义闭包：|| {}
-    // println!("{}",join(", world!"));
-    // println!("{:?}", x); // error x move to i
-// lifetime: 
+// let a = Some("hello".to_string());
+// if let Some(s) = a { // a move to s
+//     println!("{:?}", s);
+// }
+// // println!("{:?}", a); error
+// println!("Hello, world!");
+// 闭包会创建词法作用域: 闭包会捕获环境变量 1： 对于复制语义类型，以(&T)进行捕获 2：对于移动语义类型。以move进行捕获
+// 3: 对可变绑定，如果闭包包含修改操作则以(&mut)进行捕获
+// let x = "hello".to_string();
+// let join = |i: &str| {x + i}; // 定义闭包：|| {}
+// println!("{}",join(", world!"));
+// println!("{:?}", x); // error x move to i
+// lifetime:
 
 // mutable immutable: 共享可变状态是万恶之源
 
@@ -52,16 +52,15 @@ fn ownership() {
 
     string_copy();
 
-    let s = String::from("hello");  // s comes into scope
+    let s = String::from("hello"); // s comes into scope
 
-    takes_ownership(s);             // s's value moves into the function and so is no longer valid here
+    takes_ownership(s); // s's value moves into the function and so is no longer valid here
 
-    let x = 5;                      // x comes into scope
+    let x = 5; // x comes into scope
 
-    makes_copy(x);                  // x would move into the function,but i32 is Copy, so it’s okay to still
-    // use x afterward
+    makes_copy(x); // x would move into the function,but i32 is Copy, so it’s okay to still
+                   // use x afterward
 } // Here, x goes out of scope, then s. But because s's value was moved, nothing special happens.
-
 
 fn string_copy() {
     let s1 = String::from("hello");
@@ -83,15 +82,16 @@ fn stack_only_data_copy() {
     println!("x = {}, y = {}", x, y);
 }
 
-fn takes_ownership(some_string: String) { // some_string comes into scope
+fn takes_ownership(some_string: String) {
+    // some_string comes into scope
     println!("{}", some_string);
 } // Here, some_string goes out of scope and `drop` is called. The backing
-// memory is freed.
+  // memory is freed.
 
-fn makes_copy(some_integer: i32) { // some_integer comes into scope
+fn makes_copy(some_integer: i32) {
+    // some_integer comes into scope
     println!("{}", some_integer);
 } // Here, some_integer goes out of scope. Nothing special happens.
-
 
 fn calculate_length(s: String) -> (String, usize) {
     let length = s.len(); // len() returns the length of a String

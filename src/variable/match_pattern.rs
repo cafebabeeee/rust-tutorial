@@ -1,6 +1,5 @@
-
 pub fn match_result() {
-    let coin: Coin = Coin :: Cc;
+    let coin: Coin = Coin::Cc;
 
     let result: u8 = value_in_cents(coin);
 
@@ -8,8 +7,8 @@ pub fn match_result() {
 
     let mut count = 0;
 
-    let coin_two: Coin = Coin :: Dime;
-    if let Coin :: Quarter(state) = coin_two {
+    let coin_two: Coin = Coin::Dime;
+    if let Coin::Quarter(state) = coin_two {
         println!("State quarter from {:?}!", state);
     } else {
         count += 1;
@@ -36,16 +35,16 @@ enum Coin {
 
 fn value_in_cents(coin: Coin) -> u8 {
     match coin {
-        Coin :: Penny => {
+        Coin::Penny => {
             println!("Lucky penny!");
             1
-        },
-        Coin :: Nickel => 5,
-        Coin :: Dime => 10,
-        Coin :: Quarter(state) => {
+        }
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter(state) => {
             println!("State quarter from {:?}!", state);
             25
-        },
+        }
         _ => 0, // default return values
     }
 }

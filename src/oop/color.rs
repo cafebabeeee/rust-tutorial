@@ -16,8 +16,7 @@ impl FromStr for Color {
     type Err = ();
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        
-        let src= s.to_lowercase();
+        let src = s.to_lowercase();
         match src.as_ref() {
             "red" => Ok(Color::RED),
             "blue" => Ok(Color::BLUE),
@@ -38,14 +37,12 @@ impl From<String> for Color {
     }
 }
 
-
-
 impl Color {
     fn to_fg(&self) -> &str {
         match *self {
             Color::BLUE => "34",
             Color::RED => "31",
-            Color::YELLOW => "33"
+            Color::YELLOW => "33",
         }
     }
 
@@ -53,12 +50,10 @@ impl Color {
         match *self {
             Color::BLUE => "44",
             Color::RED => "41",
-            Color::YELLOW => "43"
+            Color::YELLOW => "43",
         }
     }
 }
-
-
 
 pub trait Colorized {
     fn red(self) -> ColorString;
@@ -72,7 +67,7 @@ pub trait Colorized {
 }
 
 impl Default for ColorString {
-    fn default() -> Self{
+    fn default() -> Self {
         ColorString {
             input: String::default(),
             fg_color: None,
@@ -103,7 +98,6 @@ impl Colorized for ColorString {
 
     fn on_red(self) -> ColorString {
         self.on_color(Color::RED)
-
     }
 
     fn on_blue(self) -> ColorString {
@@ -111,19 +105,18 @@ impl Colorized for ColorString {
     }
 
     fn on_yellow(self) -> ColorString {
-       self.on_color(Color::YELLOW)
+        self.on_color(Color::YELLOW)
     }
 
     fn on_color<S: Into<Color>>(self, color: S) -> ColorString {
-       ColorString {
-           bg_color: Some(color.into()),
-           ..self
-       }
+        ColorString {
+            bg_color: Some(color.into()),
+            ..self
+        }
     }
 }
 
-
-impl<'a> Colorized for &'a str{
+impl<'a> Colorized for &'a str {
     fn red(self) -> ColorString {
         self.color(Color::RED)
     }
@@ -146,7 +139,6 @@ impl<'a> Colorized for &'a str{
 
     fn on_red(self) -> ColorString {
         self.on_color(Color::RED)
-
     }
 
     fn on_blue(self) -> ColorString {
@@ -154,7 +146,7 @@ impl<'a> Colorized for &'a str{
     }
 
     fn on_yellow(self) -> ColorString {
-       self.on_color(Color::YELLOW)
+        self.on_color(Color::YELLOW)
     }
 
     fn on_color<S: Into<Color>>(self, color: S) -> ColorString {
@@ -167,7 +159,7 @@ impl<'a> Colorized for &'a str{
 }
 
 impl ColorString {
-    pub fn compute_style(&self) -> String{
+    pub fn compute_style(&self) -> String {
         let mut res = String::from("\x1B[");
         let mut has_wrote = false;
         if let Some(bg) = &self.bg_color {

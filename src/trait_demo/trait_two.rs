@@ -1,4 +1,4 @@
-use std::fmt::{Display, Debug};
+use std::fmt::{Debug, Display};
 
 // Default implementations can call other methods in the same trait
 pub trait Summary {
@@ -17,20 +17,19 @@ pub struct Tweet {
 }
 
 impl Summary for Tweet {
-
     fn summarize_author(&self) -> String {
         format!("@{}", self.username)
     }
 }
 
-fn main () {
+fn main() {
     let tweet = Tweet {
         username: String::from("horse_ebooks"),
         content: String::from("of course, as you probably already know, people"),
         reply: false,
         retweet: false,
     };
-    
+
     println!("1 new tweet: {}", tweet.summarize());
 
     // notify(tweet);
@@ -42,7 +41,7 @@ pub fn notify(item: impl Summary) {
     println!("Breaking news! {}", item.summarize());
 }
 
-pub fn notify_actually<T: Summary>(item: T) { 
+pub fn notify_actually<T: Summary>(item: T) {
     println!("Breaking news! {}", item.summarize());
 }
 
@@ -54,7 +53,11 @@ pub fn notify_actually<T: Summary>(item: T) {
 // clearer Trait Bounds with where Clauses
 /// # fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32 { }
 /// ...
-fn some_function <T, U> (t: T, u: U) -> i32 where T: Display + Clone, U: Clone + Debug { 
+fn some_function<T, U>(t: T, u: U) -> i32
+where
+    T: Display + Clone,
+    U: Clone + Debug,
+{
     1
 }
 

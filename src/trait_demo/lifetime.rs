@@ -1,12 +1,11 @@
-    // let r;
-    // {
-    //     let x = 5;
-    //     r = &x;
-    // } // `x` dropped here while still borrowed
+// let r;
+// {
+//     let x = 5;
+//     r = &x;
+// } // `x` dropped here while still borrowed
 
-    // println!("r = {}.", r);
+// println!("r = {}.", r);
 fn main() {
-
     let string1 = String::from("abcd");
     let string2 = "xyz";
 

@@ -27,13 +27,20 @@ mod tests {
     fn replace() {
         let s = "abc?d";
         let mut chars = s.chars().collect::<Vec<char>>();
-        for i in 0 ..= s.len() - 1 {
+        for i in 0..=s.len() - 1 {
             let mut words = ('a'..='z').into_iter();
-            if chars[i] == '?' { // imutable borrow
+            if chars[i] == '?' {
+                // imutable borrow
                 let left = if i == 0 { None } else { Some(chars[i - 1]) };
-                let right = if i == s.len() - 1 {None} else { Some(chars[i + 1]) };
+                let right = if i == s.len() - 1 {
+                    None
+                } else {
+                    Some(chars[i + 1])
+                };
                 // mutable borrow
-                chars[i] = words.find(|&w| Some(w) != left && Some(w) != right).unwrap();
+                chars[i] = words
+                    .find(|&w| Some(w) != left && Some(w) != right)
+                    .unwrap();
             }
         }
         let s = chars.iter().collect::<String>();
@@ -52,14 +59,14 @@ mod tests {
     // late bound early bound
     // &'static vs &'a : 'static extends 'a
     // longset short
-    fn longest<'a, 'b:'a>(a : &'a str,b: &'b str) -> &'a str{
+    fn longest<'a, 'b: 'a>(a: &'a str, b: &'b str) -> &'a str {
         if a.len() > b.len() {
             a
         } else {
             b
         }
     }
-    fn foo<'a> () {} // late bound
+    fn foo<'a>() {} // late bound
     fn poo<'a: 'a>() {} // early bound
     #[test]
     fn early_boound() {
@@ -92,11 +99,11 @@ mod tests {
         let a = &A;
         p(a);
         p(a.clone());
-        
+
         let b = &();
         p(b);
         p(b.clone());
-        
+
         let c = Rc::new(());
         p(Rc::clone(&c));
         p(c.clone());

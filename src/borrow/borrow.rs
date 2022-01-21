@@ -11,6 +11,8 @@
 // 2: 可变借用不能有别名(Alias)
 // 3: 不可变借用不能再次出借为可变借用
 // *: 对移动语义类型解引用会转移所有权
+
+#![allow(unused)]
 pub fn compute(input: &u32, output: &mut u32) {
     if *input > 10 {
         *output = 1;
@@ -19,10 +21,11 @@ pub fn compute(input: &u32, output: &mut u32) {
         *output *= 2;
     }
 }
-pub fn calculate_length(s: &String) -> usize { // s is a reference to a String
+pub fn calculate_length(s: &String) -> usize {
+    // s is a reference to a String
     s.len()
 } // Here, s goes out of scope. But because it does not have ownership of what
-// it refers to, nothing happens.
+  // it refers to, nothing happens.
 
 pub fn change(some_string: &mut String) {
     some_string.push_str(", world");
@@ -42,7 +45,7 @@ pub fn problem_mut_refs() {
 
     let r1 = &s; // no problem
     let r2 = &s; // no problem
-    // let r3 = &mut s; // BIG PROBLEM
+                 // let r3 = &mut s; // BIG PROBLEM
 
     // println!("{}, {}, and {}", r1, r2, r3);
 }

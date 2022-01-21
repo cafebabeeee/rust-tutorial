@@ -1,10 +1,10 @@
 mod hashmap;
 mod string;
 mod vector;
-#[cfg(test)] 
-mod tests{
+#[cfg(test)]
+mod tests {
+    #![allow(unused)]
     use std::{collections::VecDeque, string, vec};
-
 
     #[test]
     ///```
@@ -22,7 +22,7 @@ mod tests{
         let s1 = String::from("Hello, ");
         let s2 = String::from("world!");
         // note s1 has been moved here and can no longer be used
-        let s3 = s1 + &s2; 
+        let s3 = s1 + &s2;
         println!("{}", s3)
     }
 
@@ -36,7 +36,7 @@ mod tests{
         assert_eq!("", string);
         let str = "the tao of rust";
 
-        let string: String  = str.chars().filter(|c| !c.is_whitespace()).collect();
+        let string: String = str.chars().filter(|c| !c.is_whitespace()).collect();
         assert_eq!("thetaoofrust", string);
         let m = string.matches("tao");
         let string = str.to_owned();

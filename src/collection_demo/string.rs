@@ -1,6 +1,6 @@
+#![allow(unused)]
 #[warn(unused_mut)]
 fn main() {
- 
     let mut data = "initial content";
 
     let s = data.to_string();
@@ -10,7 +10,6 @@ fn main() {
     let s2 = String::from("initial contents");
 
     println!("{}-{}", s, s1);
-
 
     let hello = "Здравствуйте";
 

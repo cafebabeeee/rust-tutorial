@@ -5,7 +5,7 @@ struct Rectangle {
 }
 
 impl Rectangle {
-    fn area(&self) -> u32{
+    fn area(&self) -> u32 {
         self.width * self.height
     }
 
@@ -14,14 +14,19 @@ impl Rectangle {
     }
 
     fn square(size: u32) -> Rectangle {
-        Rectangle { width: size, height: size }
+        Rectangle {
+            width: size,
+            height: size,
+        }
     }
 }
 
 #[allow(unused_variables)]
 fn main() {
-
-    let rectangle:Rectangle = Rectangle { width: 30, height: 40 };
+    let rectangle: Rectangle = Rectangle {
+        width: 30,
+        height: 40,
+    };
 
     let s = area(&rectangle);
 
@@ -33,14 +38,23 @@ fn main() {
         rectangle.area()
     );
 
-    let rect1 = Rectangle { width: 30, height: 50 };
-    let rect2 = Rectangle { width: 10, height: 40 };
-    let rect3 = Rectangle { width: 60, height: 45 };
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+    let rect2 = Rectangle {
+        width: 10,
+        height: 40,
+    };
+    let rect3 = Rectangle {
+        width: 60,
+        height: 45,
+    };
 
     println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
     println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
 
-    let rect4: Rectangle = Rectangle :: square(3);
+    let rect4: Rectangle = Rectangle::square(3);
 }
 
 fn area(rectangle: &Rectangle) -> u32 {

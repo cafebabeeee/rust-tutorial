@@ -1,7 +1,5 @@
 use std::fmt::Display;
-fn main () {
-
-}
+fn main() {}
 
 struct Pair<T> {
     x: T,
@@ -10,11 +8,8 @@ struct Pair<T> {
 
 impl<T> Pair<T> {
     fn new(x: T, y: T) -> Self {
-        Pair {
-            x,
-            y,
-        }
-    }    
+        Pair { x, y }
+    }
 }
 
 impl<T: Display + PartialOrd> Pair<T> {
